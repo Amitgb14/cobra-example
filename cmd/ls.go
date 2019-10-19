@@ -29,16 +29,23 @@ var lsCmd = &cobra.Command{
 	Long:  `A longer description of delete command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("ls called")
-		name, _ := cmd.Flags().GetString("name")
-		age, _ := cmd.Flags().GetInt("age")
-		if name == "" {
-			name = "World"
-		}
+		var name string
+		var age int
 		if viper.GetString("name") != "" {
 			name = viper.GetString("name")
 		}
 		if viper.GetString("age") != "" {
 			age = viper.GetInt("age")
+		}
+
+		nameCmd, _ := cmd.Flags().GetString("name")
+		ageCmd, _ := cmd.Flags().GetInt("age")
+		if nameCmd != "" {
+			name = nameCmd
+		}
+
+		if ageCmd != 0 {
+			age = ageCmd
 		}
 
 		fmt.Printf("Name: %s, Age: %d\n", name, age)
@@ -48,5 +55,5 @@ var lsCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(lsCmd)
 	lsCmd.Flags().StringP("name", "n", "", "Give your name")
-	lsCmd.Flags().Int("age", 30, "Give your age.")
+	lsCmd.Flags().Int("age", 0, "Give your age.")
 }
