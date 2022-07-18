@@ -4,8 +4,9 @@ cobra-example
 setup
 -----
 ```
-$ cobra init . -l none -a "Amit Ghadge" --pkg-name=github.com/Amitgb14/cobra-example
-$ cobra add ls -a "Amit Ghadge"
+$ go mod init github.com/Amitgb14/cobra-example
+$ ~/go/bin/cobra-cli init . -l none -a "Amit Ghadge"
+$ ~/go/bin/cobra-cli add ls -a "Amit Ghadge"
 ```
 
 Run
