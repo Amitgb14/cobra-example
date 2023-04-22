@@ -5,6 +5,8 @@ setup
 -----
 ```
 $ go mod init github.com/Amitgb14/cobra-example
+$ go get -u github.com/spf13/cobra@latest
+$ go install github.com/spf13/cobra-cli@latest
 $ ~/go/bin/cobra-cli init . -l none -a "Amit Ghadge"
 $ ~/go/bin/cobra-cli add ls -a "Amit Ghadge"
 ```
